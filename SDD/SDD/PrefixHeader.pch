@@ -1,0 +1,132 @@
+//
+//  PrefixHeader.pch
+//  sdd_iOS_personal
+//
+//  Created by hua on 15/4/3.
+//  Copyright (c) 2015年 jofly. All rights reserved.
+//
+
+#ifndef sdd_iOS_personal_PrefixHeader_pch
+#define sdd_iOS_personal_PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+// iOS版本
+#define iOS_version [[[UIDevice currentDevice] systemVersion] floatValue]
+// 屏幕宽高
+#define viewWidth [UIScreen mainScreen].bounds.size.width
+#define viewHeight [UIScreen mainScreen].bounds.size.height
+// 分辨率
+#define MULTIPLE (viewHeight == 736? (float)1.2:viewHeight == 667? (float)1.1:(float)1.0)
+
+// 随机颜色
+#define RandomColor ([UIColor colorWithRed:arc4random_uniform(255)/255.0 green:arc4random_uniform(255)/255.0 blue:arc4random_uniform(255)/255.0 alpha:1.0])
+// 指定颜色
+#define setColor(r, g, b, a) ([UIColor colorWithRed:((r)/255.0) green:((g)/255.0) blue:((b)/255.0) alpha:(a*1.0)])
+// 浅灰——背景颜色
+#define bgColor ([UIColor colorWithRed:((240)/255.0) green:((240)/255.0) blue:((240)/255.0) alpha:(1.0)])
+
+/*--                 1.0                 --*/
+
+// 黑色
+#define deepBLack ([UIColor colorWithRed:((0)/255.0) green:((0)/255.0) blue:((0)/255.0) alpha:(1.0)])
+// 高亮颜色
+#define highlightedBg ([UIColor colorWithRed:((0)/255.0) green:((0)/255.0) blue:((0)/255.0) alpha:(1.0)])
+// 主色【橙
+#define deepOrangeColor ([UIColor colorWithRed:((231)/255.0) green:((56)/255.0) blue:((32)/255.0) alpha:(1.0)])
+// 副色
+#define lorangeColor ([UIColor colorWithRed:((251)/255.0) green:((93)/255.0) blue:((6)/255.0) alpha:(1.0)])
+
+/*--                 2.0                 --*/
+
+// 蓝色
+#define dblueColor ([UIColor colorWithRed:((2)/255.0) green:((140)/255.0) blue:((229)/255.0) alpha:(1.0)])
+// 深蓝——主要文字
+#define mainTitleColor ([UIColor colorWithRed:(59/255.0) green:((66)/255.0) blue:((80)/255.0) alpha:(1.0)])
+// 标注、提示
+#define tagsColor ([UIColor colorWithRed:((255)/255.0) green:((150)/255.0) blue:((2)/255.0) alpha:(1.0)])
+// 深灰——副级文字
+#define lgrayColor ([UIColor colorWithRed:(153/255.0) green:((153)/255.0) blue:((153)/255.0) alpha:(1.0)])
+// 浅蓝——次级文字
+#define lblueColor ([UIColor colorWithRed:(153/255.0) green:((153)/255.0) blue:((153)/255.0) alpha:(1.0)])
+//([UIColor colorWithRed:(195/255.0) green:((205)/255.0) blue:((218)/255.0) alpha:(1.0)])  原浅蓝色字
+// 分割线
+#define divisionColor ([UIColor colorWithRed:((229)/255.0) green:((229)/255.0) blue:((229)/255.0) alpha:(1.0)])
+//([UIColor colorWithRed:((200)/255.0) green:((199)/255.0) blue:((204)/255.0) alpha:(1.0)])
+// 浅色分割线
+#define ldivisionColor ([UIColor colorWithRed:((229)/255.0) green:((229)/255.0) blue:((229)/255.0) alpha:(1.0)])
+// placeholder颜色
+#define placeholder_Color ([UIColor colorWithRed:((200)/255.0) green:((200)/255.0) blue:((200)/255.0) alpha:(1.0)])
+
+// 最小字号
+#define littleFont ([UIFont systemFontOfSize:11*MULTIPLE])
+// 底部栏文字
+#define bottomFont_12 ([UIFont systemFontOfSize:12*MULTIPLE])
+// 正文
+#define midFont ([UIFont systemFontOfSize:13*MULTIPLE])
+// 标题
+#define titleFont_15 ([UIFont systemFontOfSize:15*MULTIPLE])
+// 大号正文
+#define largeFont ([UIFont systemFontOfSize:16*MULTIPLE])
+// 最大字号*
+#define biggestFont ([UIFont systemFontOfSize:18*MULTIPLE])
+
+//是否ios7以上
+#define iOS7 (kCFCoreFoundationVersionNumber >= kCFCoreFoundationVersionNumber_iOS_7_0)
+//是否ipad
+#define iPad (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+
+//状态栏高度
+#define StatusbarSize ((iOS_version >= 7 && __IPHONE_OS_VERSION_MAX_ALLOWED > __IPHONE_6_1)?20.f:0.f)
+
+//环信导入
+#define IS_IPHONE_5 ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON )
+ 
+#define RGBACOLOR(r,g,b,a) [UIColor colorWithRed:(r)/1 green:(g)/255.0 blue:(b)/255.0 alpha:(a)]
+
+#define KNOTIFICATION_LOGINCHANGE @"loginStateChange"
+
+#define CHATVIEWBACKGROUNDCOLOR [UIColor colorWithRed:0.936 green:0.932 blue:0.907 alpha:1]
+
+//_______________________       接口       __________________________//
+//  @http://www.91sydc.com/user_mobile http://112.74.96.195/user_mobile  @"http://192.168.1.234:8080/user_mobile"//
+#define SDD_MainURL                     @"http://www.91sydc.com/user_mobile"                         //主接口test
+//#define SDD_MainURL                   @"http://www.91sydc.com/user_mobile"                       //主接口
+//#define SDD_MainURL                   @"http://120.25.60.33:8081/user_mobile"                       //测试接口IP
+//#define SDD_MainURL                   @"http://112.74.96.195:8081/user_mobile"                       //正式接口IP
+//#define SDD_MainURL                     @"http://192.168.1.234:8080/user_mobile"                         //主接口
+//#define SDD_MainURL                     @"http://www.91sydc.com/user_mobile"                         //主接口
+#endif
+
+#ifdef __OBJC__
+
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+
+//ShareSDK
+#import <ShareSDK/ShareSDK.h>
+#import <TencentOpenAPI/QQApiInterface.h>
+#import <TencentOpenAPI/TencentOAuth.h>
+#import "WXApi.h"
+#import "WeiboApi.h"
+#import "WeiboSDK.h"
+#import "YXApi.h"
+ 
+//Masonry
+#import "Masonry.h"
+
+//环信
+#import "EMSDKFull.h"
+
+//SDD
+#import "LoginController.h"
+#import "GlobalController.h"
+#import "Tools_F.h"
+#import "MJExtension.h"
+
+#import "UIView+ZTExtension.h"
+#import "AppDelegate.h"
+#define  AppDelegateShare ((AppDelegate *)[UIApplication sharedApplication].delegate)
+
+#endif
